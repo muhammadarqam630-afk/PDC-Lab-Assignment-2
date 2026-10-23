@@ -17,4 +17,33 @@ public class RequestQueue {
         this.rear = 0;
         this.size = 0;
     }
+public void enqueue(char c) {
+
+    if (size == capacity) {
+        throw new IllegalStateException("Queue Overflow!");
+    }
+
+    queue[rear] = c;
+    rear = (rear + 1) % capacity;
+    size++;
+}
+
+public char dequeue() {
+
+    if (size == 0) {
+        throw new IllegalStateException("Queue Underflow!");
+    }
+
+    char value = queue[front];
+
+    front = (front + 1) % capacity;
+    size--;
+
+    return value;
+}
+
+public boolean isEmpty() {
+    return size == 0;
+}
+
 }
