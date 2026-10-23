@@ -12,6 +12,11 @@ public class PacketSymmetryAuditor {
 
         System.out.print("Enter packet payload: ");
         String packet = scanner.nextLine();
+        if (packet.isEmpty()) {
+    System.out.println("ERROR: Packet payload cannot be empty.");
+    scanner.close();
+    return;
+}
 
         TransactionStack stack =
                 new TransactionStack(packet.length());
