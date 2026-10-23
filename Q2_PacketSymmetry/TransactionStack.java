@@ -29,4 +29,18 @@ public char pop() {
 
     return stack[top--];
 }
+public char peek() {
+
+    if (top == -1) {
+        throw new IllegalStateException("Stack is Empty!");
+    }
+
+    return stack[top];
+}
+
+public boolean isEmpty() {
+    return top == -1;
+}
+
+
 }
