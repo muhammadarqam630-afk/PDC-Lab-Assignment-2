@@ -27,7 +27,39 @@ public class PacketSymmetryAuditor {
             queue.enqueue(current);
         }
 
-        System.out.println("Packet loaded successfully.");
+       boolean isPalindrome = true;
+
+System.out.println("\n===== VERIFICATION LOG =====");
+
+int position = 1;
+
+while (!stack.isEmpty() && !queue.isEmpty()) {
+
+    char stackChar = stack.pop();
+    char queueChar = queue.dequeue();
+
+    System.out.println(
+        "Check " + position +
+        " | Stack: " + stackChar +
+        " | Queue: " + queueChar
+    );
+
+    if (stackChar != queueChar) {
+        isPalindrome = false;
+    }
+
+    position++;
+}
+
+System.out.println("============================");
+
+if (isPalindrome) {
+    System.out.println("RESULT: PACKET SYMMETRY VERIFIED");
+    System.out.println("The packet is a PALINDROME.");
+} else {
+    System.out.println("RESULT: PACKET SYMMETRY FAILED");
+    System.out.println("The packet is NOT a palindrome.");
+}
 
         scanner.close();
     }
